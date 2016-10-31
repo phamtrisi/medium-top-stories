@@ -59,7 +59,7 @@ function parseHtmlToJsonData(html) {
 function updateTopStories() {
     request(MEDIUM_TOP_STORIES_URL, function(err, resp, body) {
         parseHtmlToJsonData(body).then(function(stories) {
-            console.log('Received top stories, saving to firebase', stories);
+            console.log('Received top stories, saving to firebase');
         });
     })
 }

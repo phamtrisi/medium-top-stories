@@ -4,7 +4,7 @@ var medium = require('../../utils/medium');
 function updateTopStories() {
     try {
         var job = new CronJob({
-            cronTime: '*/3 * * * * *', // Runs every 5 mins
+            cronTime: '*/10 * * * *', // Runs every 5 mins
             start: true,
             onTick: function() {
                 medium.updateTopStories()
