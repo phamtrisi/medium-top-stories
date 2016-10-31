@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var env = process.env;
-var port = env.SERVER_PORT || 8888;
+var port = env.PORT || 8888;
 
 // Routes
 app.get('/', function (req, res) {
