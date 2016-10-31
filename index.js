@@ -18,6 +18,7 @@ function parseHtmlToJsonData(html) {
         var url = $story.find('.postArticle-content a').eq(0).attr('href');
 
         stories.push({
+            uid: idx,
             updateDate: new Date(),
             titleText: title,
             mainText: content,
