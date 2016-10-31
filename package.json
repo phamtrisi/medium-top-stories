@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/phamtrisi/medium-top-stories#readme",
   "dependencies": {
+    "bluebird": "^3.4.6",
     "cheerio": "^0.22.0",
     "express": "^4.14.0",
     "request": "^2.76.0"
