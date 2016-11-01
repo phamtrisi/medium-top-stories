@@ -2,15 +2,10 @@ var request = require('request');
 var cheerio = require('cheerio');
 var Promise = require('bluebird');
 var moment = require('moment');
-var firebaseApp = require('../firebase')();
 
 
 var MEDIUM_TOP_STORIES_URL = 'https://medium.com/browse/top';
 var AMAZON_TEXT_CHARACTERS_LIMIT = 4500;
-
-// Firebase database
-var database = firebaseApp.database();
-var storiesRef = database.ref('/stories');
 
 function parseHtmlToJsonData(html) {
     var $ = cheerio.load(html);
@@ -72,7 +67,10 @@ function parseHtmlToJsonData(html) {
  * [updateTopStories description]
  * @return {[type]} [description]
  */
-function updateTopStories() {
+function updateTopStories(firebaseApp) {
+    // Firebase database
+    var database = firebaseApp.database();
+    var storiesRef = database.ref('/stories');
     request(MEDIUM_TOP_STORIES_URL, function (err, resp, body) {
         parseHtmlToJsonData(body).then(function (stories) {
             storiesRef.set(stories);

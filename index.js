@@ -3,7 +3,16 @@ var firebaseApp = require('./utils/firebase')();
 var app = express();
 var env = process.env;
 var port = env.PORT || 8888;
+var updateTopStoriesTask = require('./tasks/update-top-stories');
 var database = firebaseApp.database();
+
+// Start the cron
+try {
+    updateTopStoriesTask(firebaseApp);
+}
+catch(e) {
+    // Fail silently
+}
 
 // Routes
 app.get('/', function (req, res) {
