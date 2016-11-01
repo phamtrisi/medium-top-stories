@@ -7,7 +7,6 @@ var database = firebaseApp.database();
 
 // Routes
 app.get('/', function (req, res) {
-    console.log('here');
     database.ref('/stories').once('value', function(stories) {
         res.json(stories.val());
     });
