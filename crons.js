@@ -1,5 +1,6 @@
 var updateTopStoriesTask = require('./tasks/update-top-stories');
 
+
 try {
     updateTopStoriesTask();
 }
