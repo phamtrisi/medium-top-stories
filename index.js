@@ -16,8 +16,9 @@ catch(e) {
 
 // Routes
 app.get('/', function (req, res) {
-    database.ref('/stories').once('value', function(stories) {
-        res.json(stories.val());
+    database.ref('/stories').once('value', function(value) {
+        var stories = value.val();
+        res.json(stories.slice(0,5));
     });
 });
 
